@@ -101,8 +101,29 @@ class Grid:
             row = ship.ship_up
             for c in xrange(ship.ship_left, ship.ship_right, 1):
                 self.hit_grid[row][c] = 1
-                self.ship_grid[r][col] = ship.ship_type
+                self.ship_grid[row][c] = ship.ship_type
         return True
+
+    def avaliable_to_place(self, ship_left, ship_right, ship_up, ship_down):
+        """Checks if you can place the ship on the grid
+        Args:
+            Ship coordinates 
+        Return:
+            True if the ship can be places
+        """
+        print()
+        if ship_left == ship_right:
+            col = ship_left
+            for r in xrange(ship_up, ship_down, 1):
+                if self.hit_grid[r][col] == 1:
+                    return False
+        else:
+            row = ship_up
+            for c in xrange(ship_left, ship_right, 1):
+                if self.hit_grid[row][c] == 1:
+                    return False
+        return True  
+
     def is_within_grid_range(self, left_r, right_r, up_c ,down_c):
         """Checks if a given row and column are within the grid's range
         Args:
