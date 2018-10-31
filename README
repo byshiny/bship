@@ -3,3 +3,5 @@ README
 This is a simple implementation of a battleship.
 
 There are two modes: Single player, and Multiplayer modes.
+
+Start playing by typing in: python __main__.py
